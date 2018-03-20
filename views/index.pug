@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .container-fluid
+    #intro.row
+      .col-sm-9
+        h1 Andrew Pender
+        p.text-muted This is a webpage that showcases my web development projects along with a where to find and contact me.
+        hr#introline
+        h6 Analytics | Marketing | Blockchain
+      .col-sm-3
+        img#profilepic(src='https://avatars2.githubusercontent.com/u/26248604?v=4', alt='Profile Pic')
+      
+    #portfolio.row
+      h2.col-sm-12 Portfolio
+      .container
+        h1#portfolioline
+      .container.col-md-6
+        img(src='http://qlip.in/images/webmarqas.jpg')
+      .container.col-md-6
+        img(src='http://qlip.in/images/webmarqas.jpg')  
+
+    #contact.row
+      .col-sm-10
+        h1 Contact Me
+        hr#contactline
+        p If you would like to get in contact with me, I am available through email at and.pender@gmail.com or on Github at the following link:
+      .col-sm-2
+        .social
+          a.fa.fa-github(title="", target="_blank", href="https://github.com/andpender")
+
+
+
