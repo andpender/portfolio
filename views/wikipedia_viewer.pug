@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/wikipedia.js')
+    link(rel='stylesheet', href='/stylesheets/wikipedia.css')
+
+    #overall.container
+        .row.justify-content-center
+            h1 Wikipedia Viewer
+        .row.justify-content-center
+            input#theForm.col-4(type='text')
+        .row.justify-content-center
+            button#getWiki.col-2.btn.btn-primary Submit
+            button#clearContents.col-2.btn.btn-secondary Clear
+        .row.justify-content-center
+            a(target='_blank', href='https://en.wikipedia.org/wiki/Special:Random') Click here for a random article
+        #allResults.row.justify-content-center
