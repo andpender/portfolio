@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/quote.css')
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/quote.js')
+    .container.fluid
+        .row.justify-content-center
+            #quoteBody.col-8
+        .row.justify-content-center
+            #twitterPost.col-4.twitterPost
+                a#postTweet.fa.fa-twitter(title='', target='_blank')
+            #buttonBody.col-4
+                button#newQuote.btn(type='button') New Quote
+    footer
+        p Written by
+            a(href='https://github.com/andpender/')  Andrew Pender

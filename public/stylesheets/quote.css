@@ -1,0 +1,46 @@
+#quoteBody {
+  margin-top: 15%;
+  padding-top: 20px;
+  background: white;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#buttonBody {
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+#twitterPost {
+  background: white;
+  padding-bottom: 20px;
+}
+
+.btn {
+  color: white;  
+  float: right;
+}
+
+footer {
+  color: white;
+  text-align: center;
+}
+
+a { 
+  color: inherit; 
+} 
+
+.fa-twitter:hover { 
+    text-decoration: none;
+}
+
+.twitterPost [class*="fa fa-"] {
+    border-radius: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: auto 3px;
+    width: 60px;
+    font-size: 60px;
+    text-align: center;
+}
