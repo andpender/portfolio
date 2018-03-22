@@ -1,20 +1,20 @@
 #quoteBody {
   margin-top: 15%;
-  padding-top: 20px;
+  padding-top: 2em;
   background: white;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 2em;
 }
 
 #buttonBody {
   background: white;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 #twitterPost {
   background: white;
-  padding-bottom: 20px;
+  padding-bottom: 2em;
 }
 
 .btn {
@@ -43,4 +43,8 @@ a {
   width: 60px;
   font-size: 60px;
   text-align: center;
+}
+
+.container {
+  font-size: 1.5em;
 }
