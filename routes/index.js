@@ -7,7 +7,4 @@ var home = require('../controllers/home');
 /* GET home page. */
 router.get('/', home.index);
 
-/* GET Lily. */
-router.get('/lily', home.lily_get);
-
 module.exports = router;
