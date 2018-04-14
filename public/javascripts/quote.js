@@ -6,7 +6,7 @@ function new_api() {
       var b = document.getElementById("postTweet");
       b.href = "http://twitter.com/home/?status=" + a.quote;
     });
-  }
+}
   
 function random_bg_color() {
     var x = Math.floor(Math.random() * 256);

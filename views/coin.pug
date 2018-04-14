@@ -1,2 +1,13 @@
 extends layout
 
+block content
+
+    body   
+        link(rel='stylesheet', href='/stylesheets/coin.css')             
+        script(src='/javascripts/coin.js')        
+        h1#jsonInfo Test
+        #coinInfo.grid-coins
+            #coinName.headerTitles Coin Name
+            #priceUsd.headerTitles Price (USD)
+            #marketCap.headerTitles Market Cap (USD)
+    

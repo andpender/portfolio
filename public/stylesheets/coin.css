@@ -1,0 +1,24 @@
+body {
+    margin-top: 15%;
+}
+
+* {
+    outline: 1px solid red;
+  }
+
+.grid-coins {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    border-collapse: collapse;
+}
+
+.headerTitles {
+    background-color: lightgray;
+    font-size: 1.5em;
+    font-weight: bold;    
+}
+
+.grid-coins > div {
+    text-align: center;
+}

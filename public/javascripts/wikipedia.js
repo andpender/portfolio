@@ -9,7 +9,7 @@ function getSearch(searchTerm) {
         parseApi(data);
       }
     });
-  }
+}
   
 //This function will iterate through the api JSON
 function parseApi(data) {
