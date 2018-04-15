@@ -8371,3 +8371,7 @@
   .invisible {
     visibility: hidden !important;
   }
+
+  body {
+    padding-top: 70px;
+  }

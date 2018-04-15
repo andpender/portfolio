@@ -1,5 +1,4 @@
 #quoteBody {
-  margin-top: 15%;
   padding: 2em 1em 0em 1em;
   background: white;
   text-align: center;
@@ -41,5 +40,5 @@ a {
 }
 
 .container {
-  font-size: 20px;
+  font-size: 1em;
 }
