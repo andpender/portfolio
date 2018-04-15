@@ -1,6 +1,7 @@
 body {
-    margin-top: 15%;
+    padding-top: 70px;
 }
+
 
 * {
     outline: 1px solid red;
@@ -8,17 +9,22 @@ body {
 
 .grid-coins {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 8% 32px 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
     border-collapse: collapse;
 }
 
 .headerTitles {
     background-color: lightgray;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: bold;    
 }
 
 .grid-coins > div {
     text-align: center;
+}
+
+#mainTitle {
+    text-align: center;
+    padding-bottom: 10px;
 }
