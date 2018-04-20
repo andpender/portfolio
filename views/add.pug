@@ -1,0 +1,39 @@
+block content 
+	section.content-header 
+		h1 
+			| Blank Page
+			small it all starts here
+		ol.breadcrumb 
+			li 
+				a(href='#') 
+					i.fa.fa-dashboard
+					| Level 
+			li.active Here 
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Customer
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+					
+			.box-body
+				form(role='form',method='post' action='/add')
+					.row
+						
+						.col-xs-6
+							.box-body
+								.form-group
+									label
+										| Name
+									input(type='text',name='name',placeholder='Enter Name', autofocus).form-control
+								.form-group
+									label
+										| Owner
+									input(type='text',name='owner',placeholder='Enter owner').form-control
+							.box-footer
+								button(type='submit').btn.btn-primary
+									| Submit
+								a(href='/').btn.btn-primary.pull-right
+									| Back
