@@ -1,14 +1,10 @@
+extends layout
+
 block content 
 	section.content-header 
 		h1 
 			| Blank Page
-			small it all starts here
-		ol.breadcrumb 
-			li 
-				a(href='#') 
-					i.fa.fa-dashboard
-					| Level 
-			li.active Here 
+			small  it all starts here
 	section.content
 		.box
 			.box-header.with-border
@@ -32,6 +28,10 @@ block content
 									label
 										| Owner
 									input(type='text',name='owner',placeholder='Enter owner').form-control
+								.form-group
+									label
+										| Owner
+									input(type='date',name='birth',placeholder='Enter Birth Date').form-control
 							.box-footer
 								button(type='submit').btn.btn-primary
 									| Submit

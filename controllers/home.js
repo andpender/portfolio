@@ -18,9 +18,9 @@ exports.query_post = function(req, res, next) {
 		var customer = {
 			name: req.body.name,
 			owner: req.body.owner,
-			birth: '2018-02-02'
-		}
-
+			birth: req.body.birth
+        }
+        
 		var insert_sql = "INSERT INTO cats SET ?";
 		req.getConnection(function(err,connection){
 			var query = connection.query(insert_sql, customer, function(err, result){
