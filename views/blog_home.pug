@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  script(src='/javascripts/layout.js')
+
+  for row in data
+    a(href='/blog/' + row.slug) #{row.title}
+    p #{row.author}
+  
+  a(href='/blog/create') Create

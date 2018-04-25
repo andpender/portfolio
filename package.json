@@ -18,7 +18,8 @@
     "mysql": "github:mysqljs/mysql",
     "mysql-ssh": "^1.0.6",
     "pug": "2.0.0-beta11",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "slug": "^0.9.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.2"

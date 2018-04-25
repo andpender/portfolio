@@ -9,6 +9,7 @@ var connection  = require('express-myconnection');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var project = require('./routes/project');
+var blog = require('./routes/blog');
 var config = require('./config');
 var mysql = require('mysql');
 
@@ -23,12 +24,9 @@ app.use(
     connection(mysql,{
         host: 'localhost',
         user: config.database.user,
-        password : config.database.password,
-        database: config.database.database
+        password : config.database.password
     },'pool') //or single
- 
 );
-
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -41,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/project', project);
+app.use('/blog', blog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

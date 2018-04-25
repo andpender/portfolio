@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  script(src='/javascripts/layout.js')
+  
+
+  form(role='form',method='post' action='/blog/create')
+    .box-body
+        .form-group
+            label
+              | Title:
+            input(type='text',name='title',placeholder='Enter Title', autofocus).form-control
+        .form-group
+            label
+              | Author:
+            input(type='text',name='author',placeholder='Enter Authors Name', autofocus).form-control            
+        .form-group
+            label
+              | Content:
+            textarea(name='content',placeholder='Write blog here....', rows='5').form-control
+    .box-footer
+      button(type='submit').btn.btn-primary
+        | Submit
+      a(href='/blog').btn.btn-primary
+        | Back
