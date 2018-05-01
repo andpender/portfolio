@@ -9,7 +9,7 @@ exports.blog_home_get = function(req, res, next) {
 			res.render('blog_home',{title:"Recent Blog Posts",data:rows});
 		});
      });
-};  
+};
 
 // Display individual blog page
 exports.blog_page_get = function(req, res, next) {
@@ -63,3 +63,52 @@ exports.blog_page_post = function(req, res, next) {
     });
 
 };
+
+// GET blog edit page
+exports.blog_page_edit_get = function(req, res, next) {
+
+    var sql = 'SELECT * FROM blog.post WHERE slug = "' + req.params.slug + '"';
+
+	req.getConnection(function(err,connection){
+		var query = connection.query(sql,function(err,rows)
+		{ 
+			res.render('blog_edit',{title:"Recent Blog Posts",data:rows});
+		});
+     });    
+}
+
+// POST blog edit page
+exports.blog_page_edit_post = function(req, res, next) {
+
+    var sql = 'UPDATE blog.post SET \
+                author = "' + req.body.author + '", \
+                title = "' + req.body.title + '", \
+                information = "' + req.body.content + '", \
+                slug = "' + slug(req.body.title, {lower: true}) + '" \
+                WHERE slug = "' + req.params.slug + '"';
+    req.getConnection(function(err,connection){
+        var query = connection.query(sql, function(err, result){
+            if(err){ return next(err); }
+
+            else{
+                res.redirect('/blog')
+            }		
+        });
+    });
+}
+
+// GET blog delete page
+exports.blog_page_delete_get = function(req, res, next) {
+
+    var sql = 'DELETE FROM blog.post \
+                WHERE slug = "' + req.params.slug + '"';
+    req.getConnection(function(err,connection){
+        var query = connection.query(sql, function(err, result){
+            if(err){ return next(err); }
+
+            else{
+                res.redirect('/blog')
+            }		
+        });
+    });
+}

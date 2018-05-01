@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    script(src='/javascripts/layout.js')
+    form(role='form',method='post' action='/blog/edit/' + data[0].slug)
+        .box-body
+            .form-group
+                label
+                | Title:
+                input(type='text',name='title',placeholder='Enter Title', value=data[0].title, autofocus).form-control
+            .form-group
+                label
+                | Author:
+                input(type='text',name='author',placeholder='Enter Authors Name', value=data[0].author).form-control            
+            .form-group
+                label
+                | Content:
+                textarea(name='content', rows='5').form-control #{data[0].information}
+        .box-footer
+        button(type='submit').btn.btn-primary
+            | Submit
+        a(href='/blog').btn.btn-primary
+            | Back
