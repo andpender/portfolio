@@ -1,6 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
+// Multer saves files with diskStorage defining its name and where
+var multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+});
+var upload = multer({ storage: storage });
+
 // Require controller modules
 var blog_controller = require('../controllers/blogs');
 
@@ -11,7 +23,7 @@ router.get('/', blog_controller.blog_home_get);
 router.get('/create', blog_controller.blog_page_create);
 
 /* POST blog create page */
-router.post('/create', blog_controller.blog_page_post);
+router.post('/create', upload.single('photo'), blog_controller.blog_page_post);
 
 /* POST blog edit page */
 router.post('/edit/:slug', blog_controller.blog_page_edit_post);

@@ -5,11 +5,13 @@ block content
   script(src='/javascripts/layout.js')
 
   for row in data
+    img(src=row.path)
+    br
     a(href='/blog/' + row.slug) #{row.title}
     p #{row.author}
     a(href='/blog/edit/' + row.slug) Edit
-      br
+    br
     a(href='/blog/delete/' + row.slug) Delete
     p _______
-  
+
   a(href='/blog/create') Create

@@ -5,7 +5,7 @@ block content
   script(src='/javascripts/layout.js')
   
 
-  form(role='form',method='post' action='/blog/create')
+  form(role='form', method='post', action='/blog/create', enctype="multipart/form-data")
     .box-body
         .form-group
             label
@@ -19,6 +19,10 @@ block content
             label
               | Content:
             textarea(name='content',placeholder='Write blog here....', rows='5').form-control
+        .form-group
+            label
+                | Image:
+            input(name='photo',type="file").form-control
     .box-footer
       button(type='submit').btn.btn-primary
         | Submit

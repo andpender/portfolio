@@ -1,7 +1,7 @@
-var slug = require('slug')
+var slug = require('slug');
 
 // Display the home index
-exports.blog_home_get = function(req, res, next) {
+exports.blog_home_get = function(req, res) {
     var sql = 'SELECT * FROM blog.post LIMIT 50';
 	req.getConnection(function(err,connection){
 		var query = connection.query(sql,function(err,rows)
@@ -12,7 +12,7 @@ exports.blog_home_get = function(req, res, next) {
 };
 
 // Display individual blog page
-exports.blog_page_get = function(req, res, next) {
+exports.blog_page_get = function(req, res) {
     var sql = 'SELECT * FROM blog.post WHERE slug="' + req.params.slug + '"';
 	req.getConnection(function(err,connection){
 		var query = connection.query(sql,function(err,rows)
@@ -28,22 +28,31 @@ exports.blog_page_get = function(req, res, next) {
 };  
 
 // GET blog create page
-exports.blog_page_create = function(req, res, next) {
+exports.blog_page_create = function(req, res) {
     res.render('blog_create',{title:"Create Blog Post"});
-}
+};
 
 // POST blog create page
-exports.blog_page_post = function(req, res, next) {
+exports.blog_page_post = function(req, res) {
+    if (!req.file) {
+        var trimmedPath = '';
+    } else {
+        var imagePath = req.file.path;
+        var trimmedPath = imagePath.replace("public/uploads", "/uploads");
+    }
+
     var blog = {
         title: req.body.title,
         author: req.body.author,
         information: req.body.content,
-        slug: slug(req.body.title, {lower: true})
+        slug: slug(req.body.title, {lower: true}),
+        path: trimmedPath
     }
-    
+
     var insert_sql = "INSERT INTO blog.post SET ?";
-    if (!blog.slug)
+    if (!blog.slug) {
         insert_sql = '';
+    }
 
     req.getConnection(function(err,connection){
         var query = connection.query(insert_sql, blog, function(err, result){
@@ -70,9 +79,12 @@ exports.blog_page_edit_get = function(req, res, next) {
     var sql = 'SELECT * FROM blog.post WHERE slug = "' + req.params.slug + '"';
 
 	req.getConnection(function(err,connection){
-		var query = connection.query(sql,function(err,rows)
-		{ 
-			res.render('blog_edit',{title:"Recent Blog Posts",data:rows});
+		var query = connection.query(sql,function(err,rows){
+            if(err){ return next(err); }
+
+            else {
+                res.render('blog_edit', {title: "Recent Blog Posts", data: rows});
+            }
 		});
      });    
 }
