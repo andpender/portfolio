@@ -37,8 +37,7 @@ exports.blog_page_post = function(req, res) {
     if (!req.file) {
         var trimmedPath = '';
     } else {
-        var imagePath = req.file.path;
-        var trimmedPath = imagePath.replace("public/uploads", "/uploads");
+        var trimmedPath = req.file.path.replace("public/uploads", "/uploads");
     }
 
     var blog = {
