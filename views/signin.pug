@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    head
+        title
+
+    form(id='signin' name='signin' method='post' action='signin')
+        label Email Address
+            input(class='text', name='email', type='text')
+        label Password
+            input(name='password', type='password')
+        input(class='btn', type='submit', value='Sign In')

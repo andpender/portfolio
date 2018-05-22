@@ -19,7 +19,15 @@ html
           li.nav-item
             a.nav-link(href='/coin') Coin Markets
           li.nav-item
-            a.nav-link(href='/blog') Blog                    
+            a.nav-link(href='/blog') Blog
+          if (user)
+            li.nav-item
+              a.nav-link(href='/logout') Logout
+          else
+            li.nav-item
+              a.nav-link(href='/signup') Signup
+            li.nav-item
+              a.nav-link(href='/signin') Signin
 
   body
     block content

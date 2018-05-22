@@ -1,0 +1,50 @@
+{
+
+    "development": {
+
+        "username": "root",
+
+        "database": "blog",
+
+        "host": "localhost",
+
+        "dialect": "mysql",
+
+        "options": {
+            "operatorsAliases": false
+        }
+
+    },
+
+    "test": {
+
+        "username": "root",
+
+        "database": "blog",
+
+        "host": "localhost",
+
+        "dialect": "mysql",
+
+        "options": {
+            "operatorsAliases": false
+        }
+
+    },
+
+    "production": {
+
+        "username": "root",
+
+        "database": "blog",
+
+        "host": "localhost",
+
+        "dialect": "mysql",
+
+        "options": {
+            "operatorsAliases": false
+        }
+
+    }
+}

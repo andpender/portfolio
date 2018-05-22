@@ -7,8 +7,8 @@ block content
   if error
     p #{error}
   else
-    for row in data
-      p #{row.title}
-      p #{row.author}
-      p #{row.information}
+    img(src=data.path)
+    p #{data.title}
+    p #{data.author}
+    p #{data.information}
   a(href='/blog') Back

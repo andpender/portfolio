@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    head title
+
+    form(id='signup', name='signup', method='post' action ='/signup')
+        label Email Address
+            input(class='text', name='email', type='email')
+        label First Name
+            input(name='firstname', type='text')
+        label Last Name
+            input(name='lastname', type='text')
+        label Password
+            input(name='password', type='password')
+        input(class='btn', type='submit', value='Sign Up')
+
