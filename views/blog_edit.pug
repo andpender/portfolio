@@ -3,20 +3,20 @@ extends layout
 block content
     link(rel='stylesheet', href='/stylesheets/index.css')
     script(src='/javascripts/layout.js')
-    form(role='form',method='post' action='/blog/edit/' + data[0].slug)
+    form(role='form',method='post' action='/blog/edit/' + data.slug)
         .box-body
             .form-group
                 label
                 | Title:
-                input(type='text',name='title',placeholder='Enter Title', value=data[0].title, autofocus).form-control
+                input(type='text',name='title',placeholder='Enter Title', value=data.title, autofocus).form-control
             .form-group
                 label
                 | Author:
-                input(type='text',name='author',placeholder='Enter Authors Name', value=data[0].author).form-control            
+                input(type='text',name='author',placeholder='Enter Authors Name', value=data.author).form-control
             .form-group
                 label
                 | Content:
-                textarea(name='content', rows='5').form-control #{data[0].information}
+                textarea(name='content', rows='5').form-control #{data.information}
         .box-footer
         button(type='submit').btn.btn-primary
             | Submit
