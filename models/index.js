@@ -5,7 +5,17 @@ var path = require('path');
 var Sequelize = require('sequelize');
 var env = process.env.NODE_ENV || 'development';
 var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
-var sequelize = new Sequelize(config.database, config.username, config.password, config);
+console.log(config);
+var depConfig = {
+    username: process.env.RDS_USERNAME,
+    database: 'blog',
+    host: process.env.RDS_HOSTNAME,
+    dialect: 'mysql',
+    options: { operatorsAliases: false }
+};
+console.log(depConfig.database);
+var sequelize = new Sequelize(depConfig.database, depConfig.username, depConfig.password, depConfig);
+// var sequelize = new Sequelize(config.database, config.username, config.password, config);
 var db = {};
 
 fs
