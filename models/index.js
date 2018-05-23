@@ -9,7 +9,7 @@ console.log(config);
 var depConfig = {
     username: process.env.RDS_USERNAME,
     password: process.env.RDS_PASSWORD,
-    database: 'blog',
+    database: process.env.RDS_DB_NAME,
     host: process.env.RDS_HOSTNAME,
     dialect: 'mysql',
     options: { operatorsAliases: false }
