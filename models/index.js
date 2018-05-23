@@ -8,6 +8,7 @@ var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
 console.log(config);
 var depConfig = {
     username: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
     database: 'blog',
     host: process.env.RDS_HOSTNAME,
     dialect: 'mysql',
