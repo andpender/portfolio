@@ -33,13 +33,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // configure mysql database
-app.use(
-    connection(mysql,{
-        host: config.database.host,
-        user: config.database.user,
-        password : config.database.password
-    },'pool') //or single
-);
+// app.use(
+//     connection(mysql,{
+//         host: config.database.host,
+//         user: config.database.user,
+//         password : config.database.password
+//     },'pool') //or single
+// );
 
 // configure sessions
 app.use(session({

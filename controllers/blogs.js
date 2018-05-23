@@ -59,7 +59,7 @@ exports.blog_page_post = function(req, res) {
 };
 
 // GET blog edit page
-exports.blog_page_edit_get = function(req, res, next) {
+exports.blog_page_edit_get = function(req, res) {
     Posted.find({
         where: {
             slug: req.params.slug
@@ -73,7 +73,7 @@ exports.blog_page_edit_get = function(req, res, next) {
 };
 
 // POST blog edit page
-exports.blog_page_edit_post = function(req, res, next) {
+exports.blog_page_edit_post = function(req, res) {
     Posted.update({
         title: req.body.title,
         author: req.body.author,
@@ -90,7 +90,7 @@ exports.blog_page_edit_post = function(req, res, next) {
 };
 
 // GET blog delete page
-exports.blog_page_delete_get = function(req, res, next) {
+exports.blog_page_delete_get = function(req, res) {
     Posted.destroy({
         where: {
             slug: req.params.slug
@@ -102,4 +102,4 @@ exports.blog_page_delete_get = function(req, res, next) {
         console.log(err);
     })
 
-}
+};

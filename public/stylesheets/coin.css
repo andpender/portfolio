@@ -3,9 +3,9 @@ body {
 }
 
 
-* {
-    outline: 1px solid red;
-  }
+/** {*/
+    /*outline: 1px solid red;*/
+  /*}*/
 
 .grid-coins {
     display: grid;
