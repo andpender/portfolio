@@ -3,14 +3,15 @@
 var fs = require('fs');
 var path = require('path');
 var Sequelize = require('sequelize');
-var env = process.env.NODE_ENV || 'development';
-var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
-console.log(config);
+// var env = process.env.NODE_ENV || 'development';
+// var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
+console.log(process.env.RDS_DB_NAME);
 var depConfig = {
     username: process.env.RDS_USERNAME,
     password: process.env.RDS_PASSWORD,
     database: process.env.RDS_DB_NAME,
     host: process.env.RDS_HOSTNAME,
+    port: process.env.RDS_PORT,
     dialect: 'mysql',
     options: { operatorsAliases: false }
 };
