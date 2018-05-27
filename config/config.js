@@ -1,11 +1,52 @@
-const fs = require('fs');
+let config = {
+    "development": {
 
-var config = {
-    database: {
-        host: 'localhost',
-        port: '3306',
-        user: 'root'
+        "username": "root",
+
+        "database": "blog",
+
+        "host": "localhost",
+
+        "dialect": "mysql",
+
+        "options": {
+            "operatorsAliases": false
+        }
+    },
+
+    "test": {
+
+        "username": "root",
+
+        "database": "blog",
+
+        "host": "localhost",
+
+        "dialect": "mysql",
+
+        "options": {
+            "operatorsAliases": false
+        }
+    },
+
+    "production": {
+
+        username: process.env.RDS_USERNAME,
+
+        password: process.env.RDS_PASSWORD,
+
+        database: process.env.RDS_DB_NAME,
+
+        host: process.env.RDS_HOSTNAME,
+
+        port: process.env.RDS_PORT,
+
+        "dialect": "mysql",
+
+        "options": {
+            "operatorsAliases": false
+        }
     }
-}
+};
 
 module.exports = config;
