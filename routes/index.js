@@ -28,7 +28,7 @@ router.get('/signup', authController.signup);
 
 /* Post signup page. */
 router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/dashboard',
+        successRedirect: '/blog',
         failureRedirect: '/signup'
 }));
 
@@ -37,7 +37,7 @@ router.get('/signin', authController.signin);
 
 /* Post signin page. */
 router.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/dashboard',
+        successRedirect: '/blog',
         failureRedirect: '/signup'
 }));
 

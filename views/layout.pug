@@ -1,33 +1,26 @@
 doctype html
 html
   head
-    title= title    
+    title= title
+    link(rel='stylesheet', href='/stylesheets/layout.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     script(src='/javascripts/jquery.js')
     script(src='/javascripts/bootstrap.min.js')
-    script(src='/javascripts/layout.js')    
+    script(src='/javascripts/layout.js')
     script(src='https://use.fontawesome.com/43000f363c.js')
+    link(href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans", rel="stylesheet")
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    nav.navbar.navbar-dark.bg-dark.navbar-expand-md.container-fluid.fixed-top
-      a.navbar-brand(href='#') AP
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.ml-auto
-          li.nav-item
-            a.nav-link(href='/') Portfolio
-          li.nav-item
-            a.nav-link(href='/coin') Coin Markets
-          li.nav-item
-            a.nav-link(href='/blog') Blog
-          if (user)
-            li.nav-item
-              a.nav-link(href='/logout') Logout
-          else
-            li.nav-item
-              a.nav-link(href='/signup') Signup
-            li.nav-item
-              a.nav-link(href='/signin') Signin
-
+  header
+    .home
+      p Andrew Pender
+    .navigation
+      a(href='/') work
+      span   /#{'  '}
+      a(href='/blog') blog
+    .social
+      if (user)
+        a(href='/logout') Logout
+      else
+        a(href='/signin') Login
   body
     block content

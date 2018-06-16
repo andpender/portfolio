@@ -1,9 +1,9 @@
 body {
     background-color: teal;
 }
-  
-a,
-a:hover {
+
+a.randomArticle,
+a.randomArticle:hover {
 text-decoration: none !important;
 color: white;
 }
