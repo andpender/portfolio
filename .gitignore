@@ -4,5 +4,5 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 .idea/
-public/images/icons/
-node_modules/
+/public/images/icons/*
+/node_modules/*
