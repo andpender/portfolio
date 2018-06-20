@@ -8,7 +8,7 @@ exports.timestamp = function(req, res, next) {
       if (utcD == "Invalid Date"){
         res.send({ error: "Invalid Date"});    
       } else {
-        res.send({ unix: req.params['date_string'], utc: utcD.toUTCString()});
+        res.send({ unix: parseInt(req.params['date_string']), utc: utcD.toUTCString()});
       }
     } else {
       // utc timecode passed in
