@@ -2,7 +2,7 @@
 exports.timestamp = function(req, res, next) {
 
     var y = Date.parse(req.params['date_string']);
-    
+
     if (isNaN(y)){
       // unix timecode passed in
       if(typeof req.params['date_string'] == 'undefined'){
@@ -27,3 +27,10 @@ exports.timestamp = function(req, res, next) {
       }
     }
 };  
+
+exports.whoami = function(req, res, next) {
+    let host = req.headers.host;
+    let language = req.headers["accept-language"];
+    let agent = req.headers["user-agent"]; 
+    res.send({ "ipaddress": host, "language": language, "software": agent});   
+};

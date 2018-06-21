@@ -6,4 +6,6 @@ var api = require('../controllers/api');
 
 router.get('/timestamp/:date_string?', api.timestamp);
 
+router.get('/whoami', api.whoami);
+
 module.exports = router;
