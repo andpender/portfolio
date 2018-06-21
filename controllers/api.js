@@ -1,14 +1,21 @@
 // Display the apis
 exports.timestamp = function(req, res, next) {
-    let y = Date.parse(req.params['date_string']);
+
+    var y = Date.parse(req.params['date_string']);
+    
     if (isNaN(y)){
       // unix timecode passed in
-      let utcD = new Date(parseInt(req.params['date_string']));
-      console.log(utcD);
-      if (utcD == "Invalid Date"){
-        res.send({ error: "Invalid Date"});    
+      if(typeof req.params['date_string'] == 'undefined'){
+        let k = new Date();
+        res.send({ unix: Date.now(), utc: k.toUTCString()});
       } else {
-        res.send({ unix: parseInt(req.params['date_string']), utc: utcD.toUTCString()});
+        let utcD = new Date(parseInt(req.params['date_string']));
+        console.log(utcD);
+        if (utcD == "Invalid Date"){
+            res.send({ error: "Invalid Date"});    
+        } else {
+            res.send({ unix: parseInt(req.params['date_string']), utc: utcD.toUTCString()});
+        }
       }
     } else {
       // utc timecode passed in
