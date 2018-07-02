@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  script(src='/javascripts/layout.js')
+  
+
+  form(role='form', method='post', action='/api/shorturl/new')
+    .box-body
+        .form-group
+            label
+              | URL:
+            input(type='url',name='url',placeholder='Enter URL',value="https://", autofocus).form-control
+    .box-footer
+      button(type='submit').btn.btn-primary
+        | Submit
+      a(href='/blog').btn.btn-primary
+        | Back
