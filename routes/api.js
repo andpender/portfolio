@@ -6,7 +6,7 @@ var api = require('../controllers/api');
 
 router.get('/timestamp/:date_string?', api.timestamp);
 
-router.get('/shorturl/new', api.short_get);
+router.get('/shorturl/new', api.short_form);
 
 router.post('/shorturl/new', api.short_post);
 

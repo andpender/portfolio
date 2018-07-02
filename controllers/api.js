@@ -42,6 +42,11 @@ exports.whoami = function(req, res, next) {
 };
 
 
+// Display shortener submission form
+exports.short_form = function(req, res, next) {
+    res.render('short');
+}; 
+
 // Take shortened url and redirect to URL from database
 exports.short_get = function(req, res, next) {
     Shortened.find({
