@@ -84,3 +84,9 @@ exports.short_post = function(req, res, next) {
         }
     });    
 };
+
+
+// Get exercise dashboard
+exports.exercise = function(req, res, next) {
+    res.render('exercise_home');
+};

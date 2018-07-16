@@ -14,4 +14,6 @@ router.get('/shorturl/:short', api.short_get);
 
 router.get('/whoami', api.whoami);
 
+router.get('/exercise', api.exercise)
+
 module.exports = router;

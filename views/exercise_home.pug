@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  script(src='/javascripts/layout.js')
+  
+
+  form(role='form', method='post', action='/api/exercise/new-user')
+    .box-body
+        .form-group
+            label
+              | Username:
+            input(type='text',name='url',placeholder='Enter Username', autofocus).form-control
+    .box-footer
+      button(type='submit').btn.btn-primary
+        | Submit
+
+  form(role='form', method='post', action='/api/exercise/new-user')
+    .box-body
+        .form-group
+            label
+              | Username:
+            input(type='text',name='url',placeholder='Enter Username', autofocus).form-control
+    .box-footer
+      button(type='submit').btn.btn-primary
+        | Submit
