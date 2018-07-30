@@ -1,7 +1,5 @@
 module.exports = function(sequelize, Sequelize) {
-
-
-    var Post = sequelize.define('short', {
+    var Short = sequelize.define('short', {
 
         id: {
             autoIncrement: true,
@@ -17,7 +15,5 @@ module.exports = function(sequelize, Sequelize) {
     }, {
         freezeTableName: true,
     });
-
-    return Post;
-
+    return Short;
 }

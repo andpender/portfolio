@@ -6,21 +6,27 @@ block content
   
 
   form(role='form', method='post', action='/api/exercise/new-user')
+    h4 Add User:
     .box-body
         .form-group
-            label
-              | Username:
-            input(type='text',name='url',placeholder='Enter Username', autofocus).form-control
+            input(type='text',name='username',placeholder='Enter Username', autofocus).form-control
     .box-footer
+      if err
+        p #{err}
       button(type='submit').btn.btn-primary
         | Submit
 
-  form(role='form', method='post', action='/api/exercise/new-user')
+  form(role='form', method='post', action='/api/exercise/add')
+    h4 Add Exercises:
     .box-body
         .form-group
-            label
-              | Username:
-            input(type='text',name='url',placeholder='Enter Username', autofocus).form-control
+            input(type='text',name='user_id',placeholder='User ID*', autofocus).form-control
+        .form-group
+            input(type='text',name='description',placeholder='Description*').form-control
+        .form-group
+            input(type='number',name='duration',placeholder='Duration* (mins)').form-control
+        .form-group
+            input(type='date',name='date',placeholder='Date (yyyy-mm-dd)').form-control            
     .box-footer
       button(type='submit').btn.btn-primary
         | Submit

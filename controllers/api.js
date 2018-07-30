@@ -1,9 +1,10 @@
 const dns = require('dns');
 const models = require('../models');
 const Shortened = models.short;
+const Exercise_User = models.exercise_user;
 
 // Display the apis
-exports.timestamp = function(req, res, next) {
+exports.timestamp = function(req, res) {
 
     var y = Date.parse(req.params['date_string']);
 
@@ -34,7 +35,7 @@ exports.timestamp = function(req, res, next) {
 
 
 // Displays user details from request header
-exports.whoami = function(req, res, next) {
+exports.whoami = function(req, res) {
     let host = req.headers.host;
     let language = req.headers["accept-language"];
     let agent = req.headers["user-agent"]; 
@@ -43,12 +44,12 @@ exports.whoami = function(req, res, next) {
 
 
 // Display shortener submission form
-exports.short_form = function(req, res, next) {
+exports.short_form = function(req, res) {
     res.render('short');
 }; 
 
 // Take shortened url and redirect to URL from database
-exports.short_get = function(req, res, next) {
+exports.short_get = function(req, res) {
     Shortened.find({
         where: {
             id: req.params.short
@@ -64,7 +65,7 @@ exports.short_get = function(req, res, next) {
 
 
 // Take posted URL and return shortened in JSON
-exports.short_post = function(req, res, next) {
+exports.short_post = function(req, res) {
     let url = req.body.url.replace(/^https*:\/*\/*/i, '');
     console.log(url);
     dns.lookup(url, (err, address, family) => {
@@ -90,3 +91,15 @@ exports.short_post = function(req, res, next) {
 exports.exercise = function(req, res, next) {
     res.render('exercise_home');
 };
+
+// Post a new user and return an ID
+exports.new_user = function(req, res) {
+    Exercise_User.create({
+        user_id: Math.random().toString(36).substr(2, 10),
+        username: req.body.username
+    }).then(rows => {
+        res.send({'username':rows.username, '_id':rows.user_id});
+    }).catch(err => {
+        res.render('exercise_home', {'err':err.errors[0].message});
+    });
+}
