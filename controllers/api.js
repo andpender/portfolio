@@ -2,6 +2,9 @@ const dns = require('dns');
 const models = require('../models');
 const Shortened = models.short;
 const Exercise_User = models.exercise_user;
+const Exercise = models.exercise;
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
 
 // Display the apis
 exports.timestamp = function(req, res) {
@@ -92,6 +95,7 @@ exports.exercise = function(req, res, next) {
     res.render('exercise_home');
 };
 
+
 // Post a new user and return an ID
 exports.new_user = function(req, res) {
     Exercise_User.create({
@@ -102,4 +106,30 @@ exports.new_user = function(req, res) {
     }).catch(err => {
         res.render('exercise_home', {'err':err.errors[0].message});
     });
-}
+};
+
+
+// Post a new excercise for a particular user ID
+exports.new_exercise = function(req, res) {
+    if(Object.prototype.toString.call(req.body.date) !== "[object Date]"){
+        req.body.date = new Date();
+    }
+    Exercise_User.findAll({
+        where: {
+            user_id: req.body.user_id
+        }
+    }).then(rows => {
+        Exercise.create({
+            user_id: rows[0].user_id,
+            description: req.body.description,
+            duration: req.body.duration,
+            date: req.body.date
+        }).then(rows => {
+            res.send({'user_id':rows.user_id, 'description':rows.description, 'duration':rows.duration, 'date':rows.date});
+        }).catch(err => {
+            res.send({'error':err});
+        });
+    }).catch(err => {
+        res.send({'error':err});
+    });
+};

@@ -9,6 +9,8 @@ let config = {
 
         "dialect": "mysql",
 
+        "define": { "rejectOnEmpty": true },
+
         "options": {
             "operatorsAliases": false
         }
@@ -23,6 +25,8 @@ let config = {
         "host": "localhost",
 
         "dialect": "mysql",
+
+        "define": { "rejectOnEmpty": true },
 
         "options": {
             "operatorsAliases": false
@@ -42,6 +46,8 @@ let config = {
         port: process.env.RDS_PORT,
 
         "dialect": "mysql",
+
+        "define": { "rejectOnEmpty": true },
 
         "options": {
             "operatorsAliases": false

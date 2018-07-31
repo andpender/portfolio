@@ -25,7 +25,9 @@ module.exports = function(sequelize, Sequelize) {
         },
 
         date: {
-            type: Sequelize.DATE
+            type: Sequelize.DATE,
+            allowNull: true,
+            defaultValue: null
         }
 
     }, {

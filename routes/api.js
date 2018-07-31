@@ -18,4 +18,6 @@ router.get('/exercise', api.exercise);
 
 router.post('/exercise/new-user', api.new_user);
 
+router.post('/exercise/add', api.new_exercise);
+
 module.exports = router;
