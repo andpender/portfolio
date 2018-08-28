@@ -133,3 +133,26 @@ exports.new_exercise = function(req, res) {
         res.send({'error':err});
     });
 };
+
+// Get a users exercise history
+exports.user_history = function(req, res) {
+    var log = [];
+    if (req.query.userId == null){
+        console.log('Not provided');
+    } else {
+        Exercise.findAll({
+            where: {
+                user_id: req.query.userId
+            }
+        }).then(rows => {
+            for (let i=0; i<rows.length; i++) {
+                log.push({'description': rows[i].dataValues.description,
+                          'duration': rows[i].dataValues.duration,
+                          'date': rows[i].dataValues.date});
+            };
+            res.send({'_id': rows[0].user_id, 'count':rows.length, 'log':log});
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+};
