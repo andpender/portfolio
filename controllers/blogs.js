@@ -8,6 +8,8 @@ exports.blog_home_get = function(req, res) {
         limit: 10
     }).then(rows => {
         res.render('blog_home',{title:"Recent Blog Posts", data:rows, user:req.user});
+    }).catch(err => {
+        res.render('blog_home',{title:"Recent Blog Posts", data:"", user:""});
     })
 };
 

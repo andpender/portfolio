@@ -3,13 +3,14 @@ const Posted = models.posts;
 
 // Display the home index
 exports.index = function(req, res, next) {
-	Posted.findAll({
+	res.render('index',{title:"Andrew's Portfolio Site"});
+	// Posted.findAll({
 
-	}).then(rows => {
-		res.render('index',{title:"Customers",data:rows,user:req.user});
-	}).catch(err => {
-		console.log(err);
-	})
+	// }).then(rows => {
+	// 	res.render('index',{title:"Customers",data:rows,user:req.user});
+	// }).catch(err => {
+	// 	console.log(err);
+	// })
 };  
 
 // Test home page

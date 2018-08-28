@@ -14,17 +14,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 
-/* Checks whether the session is logged in */
-function isLoggedIn(req, res, next) {
-
-    if (req.isAuthenticated())
-
-        return next();
-
-    res.redirect('/signin');
-
-}
-
 // Require controller modules
 var blog_controller = require('../controllers/blogs');
 
@@ -32,19 +21,19 @@ var blog_controller = require('../controllers/blogs');
 router.get('/', blog_controller.blog_home_get);
 
 /* GET blog create page */
-router.get('/create', isLoggedIn, blog_controller.blog_page_create);
+router.get('/create', blog_controller.blog_page_create);
 
 /* POST blog create page */
-router.post('/create', upload.single('photo'), isLoggedIn, blog_controller.blog_page_post);
+router.post('/create', upload.single('photo'), blog_controller.blog_page_post);
 
 /* GET blog edit page */
-router.post('/edit/:slug', isLoggedIn, blog_controller.blog_page_edit_post);
+router.post('/edit/:slug', blog_controller.blog_page_edit_post);
 
 /* POST blog edit page */
-router.get('/delete/:slug', isLoggedIn, blog_controller.blog_page_delete_get);
+router.get('/delete/:slug', blog_controller.blog_page_delete_get);
 
 /* GET blog edit page */
-router.get('/edit/:slug', isLoggedIn, blog_controller.blog_page_edit_get);
+router.get('/edit/:slug', blog_controller.blog_page_edit_get);
 
 /* GET individual blog page */
 router.get('/:slug', blog_controller.blog_page_get);

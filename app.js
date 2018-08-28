@@ -13,7 +13,6 @@ var env = require('dotenv').load();
 
 // Routes
 var index = require('./routes/index');
-var users = require('./routes/users');
 var project = require('./routes/project');
 var blog = require('./routes/blog');
 var api = require('./routes/api');
@@ -22,9 +21,6 @@ var models = require('./models');
 
 
 var app = express();
-
-//load passport strategies
-require('./config/passport/passport.js')(passport, models.user);
 
 // read cookies (needed for auth)
 app.use(cookieParser());
@@ -63,7 +59,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route paths
 app.use('/', index);
-app.use('/users', users);
 app.use('/project', project);
 app.use('/blog', blog);
 app.use('/api', api);
